@@ -1,38 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #221f23;
+}
+
 .App {
-  text-align: center;
+    width: 80vw;
+    height: calc(90vh - 70px);
+    border: 1px solid rgb(100, 79, 79);
+    border-radius: 30px;
+    background: #efecf0;
+    padding: 30px;
+    color: #221f23;
+    overflow: hidden;
+    overflow-y: auto;
+    font-size: 14;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+    color: #6ead43;
+}
+.row {
+    display: flex;
+}
+.main-row {
+    gap: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.side {
+    flex: 1
+}
+
+.item-wrapper {
+    width: 100%;
+    background: #cfcccf;
+    padding: 10px 15px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.task-title_done {
+    color: #6ead43;
+}
+
+
+
+.item-wrapper:hover {
+    background: #4f4a4a;
+    color: #cfcccf;
+}
+.btn-container {
+    position: absolute;
+    color: #cfcccf; 
+    right: 20px;
+    top: 0;
+    z-index: -1;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    background: #cfcccf;
+    padding: 5px 10px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    gap: 15px;
+}
+
+.item-wrapper:hover  .btn-container {
+    transform: translateY(-98%);
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+    background: #4f4a4a;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+    text-decoration: underline;
+}
+
+.header-row {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-task__wrapper {
+    background: #cfcccf;
+    flex: 1;
+    margin-left: 50px;
+    padding: 20px 30px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.add-task__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    padding-bottom: 3px;
+}
+
+.add-btn {
+    width: 20px;
+    height: 20px;
+    /* border: 1px solid red; */
+    cursor: pointer;
+    position: relative;
+}
+
+.add-btn__line-1,
+.add-btn__line-2 {
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    height: 3px;
+    background: #221f23;
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+
+.add-btn__line-2 {
+    transform: rotate(90deg);
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+.fl1 {
+    flex:1;
+}
+
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #6ead43;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-duration: 1.2s;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.container__title {
+    color: #6ead43;
+    text-align: center;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .App {
+    scrollbar-width: auto;
+    scrollbar-color: #6ead43 transparent;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  /* Chrome, Edge, and Safari */
+  .App::-webkit-scrollbar {
+    width: 6px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
-}
+
+  .App::-webkit-scrollbar-thumb {
+    background-color: #6ead43;
+    border-radius: 10px;
+  }
